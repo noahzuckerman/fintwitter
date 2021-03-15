@@ -12,7 +12,7 @@ In order to better understand the network effects of the his phenomenon, test th
 
 A portion of the report is dedicated to data wrangling, cleaning and processing whilst another part is dedicated to model training and predictions. Lastly there is a set of modules written in python that accompany these workbooks that are the engine that drive the front-end website that allows users to engage with the tool in realtime.
 
-The goal of this tool is to serve as an additional input into an investors decision making. The "wisdom of the crowd" should be available to everybody. I could see this tool eventually being integarated as a feature in popular trading apps like Robinhood and Wealthsimple. 
+The goal of this tool is to serve as an additional input into an investors decision making. The "wisdom of the crowd" should be available to everybody. I could see this tool eventually being integarated as a feature in popular trading apps like Robinhood and Wealthsimple.
 
 The web-app of the tool hosted on Heroku can be found [here](https://fintwitter.herokuapp.com/)
 
@@ -121,13 +121,13 @@ In the prior 3 months to building this project, the three most mentioned stocks/
 
 GameStop was mentioned roughly as many times as Tesla and Bitcoin combined in the same time period. See Image below.
 
-![plot](./assets/tweet_mentions_bar.png)
+![](./assets/tweet_mentions_bar.png)
 
 The next part of my analysis focused on whether this was a reactive relationship or a causal one. In order to properly analyze the frequency of mentions over time, I needed to smooth the historical data as it is typically filled with peaks and troths. To do this I calculated the seven day moving average of the frequency of mentions. The seven day moving average showed a 66% better correlation with the price data - a 4% improvement from the original mentions data.
 
 A key observation from the seven day moving average (which can be seen below), is that it rarely sees a 20-30x increase over the span of two weeks. This was a unique feature seen in the GME data and helped inform the logic used in my analysis of live twitter data to flag another future "black swan" event.
 
-![plot](./assets/seven-day-MA.png)
+![](./assets/seven-day-MA.png)
 
 Given how random the GME event was, I did not want to build a model and apply it to all twitter stock data. This would prove disastrous and result in poor predictions. To compensate for this I decided to evaluate each of the weeks top 10 stocks by mentions using both outlier occurence and statistics infered from the GME event to flag a given stock name for predictions. Essentially if the stock is going viral, then let's model it with a model trained on the GME dataset.
 
